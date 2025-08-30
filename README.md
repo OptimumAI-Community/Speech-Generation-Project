@@ -165,3 +165,70 @@ The `product_reviews_generator.ipynb` notebook demonstrates how to convert a pro
 2. Install the required dependencies.
 3. Execute the cells to generate and combine audio files.
 4. Listen to the generated audio files directly in the notebook or save them for external use.
+
+## 10. Project Structure
+
+This project is organized to facilitate easy navigation and development. Below is the recommended structure when using Poetry or `venv` for managing dependencies:
+
+```
+Speech-Generation-Project/
+│
+├── product_reviews_generator.ipynb  # Notebook for TTS pipeline
+├── README.md                        # Project documentation
+├── pyproject.toml                   # Poetry configuration file
+├── poetry.lock                      # Poetry lock file for dependencies
+├── requirements.txt                 # Optional: Dependencies for `venv`
+├── .gitignore                       # Git ignore file
+├── data/                            # Directory for datasets
+│   ├── lj_speech/                   # LJ Speech dataset
+│   ├── libri_tts/                   # LibriTTS dataset
+│   └── common_voice/                # CommonVoice dataset (optional)
+├── models/                          # Directory for saved models
+│   ├── baseline/                    # Baseline models
+│   └── fine_tuned/                  # Fine-tuned models
+├── outputs/                         # Directory for generated outputs
+│   ├── audio/                       # Generated audio files
+│   └── logs/                        # Logs for training and evaluation
+├── scripts/                         # Utility scripts
+│   ├── preprocess.py                # Data preprocessing script
+│   ├── train.py                     # Training script
+│   └── evaluate.py                  # Evaluation script
+└── tests/                           # Unit tests
+    ├── test_pipeline.py             # Tests for TTS pipeline
+    └── test_utils.py                # Tests for utility functions
+```
+
+### Key Files and Directories
+- **`pyproject.toml`**: Defines the project dependencies and metadata for Poetry.
+- **`requirements.txt`**: Lists dependencies for those using `venv` instead of Poetry.
+- **`data/`**: Contains datasets used for training and evaluation.
+- **`models/`**: Stores baseline and fine-tuned models.
+- **`outputs/`**: Includes generated audio files and logs.
+- **`scripts/`**: Contains Python scripts for preprocessing, training, and evaluation.
+- **`tests/`**: Includes unit tests to ensure code reliability.
+
+### Setting Up the Project
+1. **Using Poetry**:
+   - Install dependencies:
+     ```bash
+     poetry install
+     ```
+   - Run scripts:
+     ```bash
+     poetry run python scripts/train.py
+     ```
+
+2. **Using `venv`**:
+   - Create a virtual environment:
+     ```bash
+     python3 -m venv env
+     source env/bin/activate
+     ```
+   - Install dependencies:
+     ```bash
+     pip install -r requirements.txt
+     ```
+   - Run scripts:
+     ```bash
+     python scripts/train.py
+     ```

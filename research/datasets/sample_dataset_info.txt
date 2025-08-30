@@ -1,0 +1,7 @@
+# Sample Dataset Info
+
+This file contains information about the datasets used for audio generation research.
+
+- Dataset Name: Sample Audio Dataset
+- Description: A placeholder dataset for testing and experimentation.
+- Format: WAV files with corresponding metadata.
