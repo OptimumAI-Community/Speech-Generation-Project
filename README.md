@@ -76,3 +76,92 @@ Key areas include model parameters, audio features, and efficient fine-tuning st
 - Audio quality evaluation dataset & results (MOS, PESQ)
 - Final research paper/report with recommendations
 - Open-source code repository for reproducibility
+
+## 8. Environment Setup
+
+To set up the Python environment for this project, follow these steps:
+
+1. **Install Python**:
+   - Ensure Python 3.8 or later is installed on your system. You can download it from [python.org](https://www.python.org/).
+
+2. **Install Poetry**:
+   - Poetry is used for dependency management and packaging.
+   - Install Poetry by running:
+     ```bash
+     curl -sSL https://install.python-poetry.org | python3 -
+     ```
+   - Verify the installation:
+     ```bash
+     poetry --version
+     ```
+
+3. **Set Up the Environment**:
+   - Navigate to the project directory:
+     ```bash
+     cd Speech-Generation-Project
+     ```
+   - Install dependencies:
+     ```bash
+     poetry install
+     ```
+
+4. **Activate the Virtual Environment**:
+   - To activate the virtual environment created by Poetry, run:
+     ```bash
+     poetry shell
+     ```
+
+5. **Run the Project**:
+   - After activating the environment, you can run the project scripts or notebooks as needed.
+
+6. **Additional Tools**:
+   - If you prefer using `venv` instead of Poetry, you can create a virtual environment manually:
+     ```bash
+     python3 -m venv env
+     source env/bin/activate
+     pip install -r requirements.txt
+     ```
+
+## 9. Text-to-Speech Details
+
+This project includes a Text-to-Speech (TTS) pipeline for generating audio reviews from text. Below are the details of the implementation:
+
+### Overview
+The `product_reviews_generator.ipynb` notebook demonstrates how to convert a product review script into audio using the `Kokoro` library. The example provided focuses on a MacBook Air review, split into sections for better synthesis and playback.
+
+### Key Features
+- **TTS Pipeline**: Utilizes the `KPipeline` class from the `Kokoro` library to generate speech.
+- **Audio Processing**: Converts text sections into audio files and combines them into a single audio file.
+- **Languages and Voices**: Supports synthetic English pronunciation with an Afrikaans-like voice (`af_heart`).
+- **Output**: Generates individual audio files for each section and a combined audio file for the entire review.
+
+### Steps in the Notebook
+1. **Install Dependencies**:
+   - Installs the `kokoro` library and `soundfile` for audio processing.
+   - Installs `espeak-ng` for text-to-speech synthesis.
+
+2. **Initialize TTS Pipeline**:
+   - Sets up the `KPipeline` with the desired language code and voice.
+
+3. **Generate Audio Files**:
+   - Loops through each section of the review script.
+   - Synthesizes audio for each section and saves it as a `.wav` file.
+
+4. **Combine Audio Files**:
+   - Reads and concatenates all generated audio files.
+   - Saves the combined audio as a single `.wav` file.
+
+### Example Output
+- Individual audio files: `macbook_review_part1_1.wav`, `macbook_review_part2_1.wav`, etc.
+- Combined audio file: `macbook_review_combined.wav`
+
+### Tools Used
+- **Libraries**: `Kokoro`, `soundfile`, `numpy`
+- **Audio Playback**: `IPython.display.Audio`
+- **File Handling**: `os` for managing audio files
+
+### How to Run
+1. Open the `product_reviews_generator.ipynb` notebook.
+2. Install the required dependencies.
+3. Execute the cells to generate and combine audio files.
+4. Listen to the generated audio files directly in the notebook or save them for external use.
